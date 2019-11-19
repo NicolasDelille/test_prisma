@@ -29,11 +29,8 @@ h2 {
     position: relative;
     z-index: 10;
     margin: 0 auto;
-    width: 250px;
-    @media screen and (min-width: 700px) {
-        padding: 0 50px;
-        width: 650px;
-    }
+    padding: 0 50px;
+    width: 650px;
     .paginationButton {
         position: absolute;
         border: 2px solid $blueMedium2;
@@ -55,28 +52,20 @@ h2 {
             transform: translateX(-50%) translateY(-50%);
         }
         &.prev {
-            left: -50px;
-            @media screen and (min-width: 700px) {
-                top: 0;
-                left: 0;
-            }
+            top: 0;
+            left: 0;
         }
         &.next {
-            @media screen and (min-width: 700px) {
-                top: 0;
-                right: 0;
-            }
+            top: 0;
+            right: 0;
         }
     }
     .pagination-slider {
         position: relative;
         overflow: hidden;
         margin: 30px auto;
-        height: 80px;
-        @media screen and (min-width: 700px) {
-            height: 40px;
-            max-width: 550x;
-        }
+        height: 40px;
+        max-width: 550x;
         .pagination-slider-wrapper {
             display: flex;
             position: absolute;
