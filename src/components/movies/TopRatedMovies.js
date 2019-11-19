@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import classnames from 'classnames';
 import './TopRatedMovies.scss';
 import Movie from './Movie';
+import prevSlide from '../../assets/sliderpreviousarrow.svg';
+import nextSlide from '../../assets/slidernextarrow.svg';
 
 const TopRatedMovies = () => {
     const [movies, setMovies] = useState([]);
@@ -15,10 +18,12 @@ const TopRatedMovies = () => {
             });
             const fetchedMovies = res.data.results;
 
-            const moviesWithIndex = fetchedMovies.map((movie, index) => ({ ...movie, index }));
+            const fetchedMoviesWithIndex = fetchedMovies.map((movie, index) => ({ ...movie, index }));
 
-            setMovies(moviesWithIndex);
-            setMovie(moviesWithIndex[0]);
+            const topTenMovies = fetchedMoviesWithIndex.splice(0, 10);
+
+            setMovies(topTenMovies);
+            setMovie(topTenMovies[0]);
             setLoading(false);
         } catch (error) {
             console.error(error.message);
@@ -29,29 +34,60 @@ const TopRatedMovies = () => {
         fetchTopMovies();
     }, []);
 
-    const prevMovie = () => {
-        const newIndex = movie.index - 1;
+    const prevMovie = delta => {
+        const newIndex = movie.index - delta;
         setMovie({ ...movie, index: newIndex });
     };
 
-    const nextMovie = () => {
-        const newIndex = movie.index + 1;
+    const nextMovie = delta => {
+        const newIndex = movie.index + delta;
         setMovie({ ...movie, index: newIndex });
+    };
+
+    let clientX;
+
+    const handleTouchStart = e => {
+        clientX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = e => {
+        let deltaX;
+        deltaX = e.changedTouches[0].clientX - clientX;
+
+        const delta = parseInt(Math.abs(deltaX) / 100) + 1;
+
+        if (deltaX > 0) {
+            if (movie.index <= movies.length - 4) {
+                nextMovie(delta);
+            }
+        } else {
+            if (movie.index !== 0) {
+                prevMovie(delta);
+            }
+        }
     };
 
     return (
-        <div className='wrapper'>
+        <div className='header-wrapper'>
             <h2>Les 10 meilleurs films</h2>
             {loading ? (
                 <span style={{ height: '275px' }}>loading...</span>
             ) : (
                 <div className='slider'>
-                    <button onClick={() => prevMovie()} disabled={movie.index === 0}>
-                        Prev
+                    <button
+                        className={classnames('sliderButton', 'prev', {
+                            disabled: movie.index === 0
+                        })}
+                        onClick={() => prevMovie(4)}
+                        disabled={movie.index === 0}
+                    >
+                        <img src={prevSlide} alt='Film précédent' />
                     </button>
                     <div className='movie-slider'>
                         <div
                             className='movie-slider-wrapper'
+                            onTouchStart={handleTouchStart}
+                            onTouchEnd={handleTouchEnd}
                             style={{
                                 transform: `translateX(-${movie.index * (100 / movies.length)}%)`
                             }}
@@ -59,8 +95,14 @@ const TopRatedMovies = () => {
                             {!loading && movies.map(movie => <Movie key={movie.id} movie={movie} />)}
                         </div>
                     </div>
-                    <button onClick={() => this.nextMovie()} disabled={movie.index === movies.length - 1}>
-                        Next
+                    <button
+                        className={classnames('sliderButton', 'next', {
+                            disabled: movie.index === movies.length - 2
+                        })}
+                        onClick={() => nextMovie(4)}
+                        disabled={movie.index === movies.length - 2}
+                    >
+                        <img src={nextSlide} alt='Film suivant' />
                     </button>
                 </div>
             )}

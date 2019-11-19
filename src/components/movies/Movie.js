@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Moment from 'react-moment';
 import './Movie.scss';
 
 const Movie = ({ movie }) => {
-    const [poster, setPoster] = useState({});
-    const fecthPoster = () => {};
-
     return (
         <div className='movie-card'>
-            <img src='http://lorempixel.com/138/200' alt='' />
+            <img
+                className='poster'
+                src={`${process.env.REACT_APP_API_IMAGE_ENTRYPOINT}/w200${movie.poster_path}`}
+                alt=''
+            />
             <div className='details'>
                 <span className='title'>{movie.title}</span>
-                <br />
                 <span className='date'>
                     <Moment format='YYYY'>{movie.release_date}</Moment>
                 </span>

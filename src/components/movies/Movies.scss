@@ -1,0 +1,101 @@
+@import '../../styles/fonts.scss';
+@import '../../styles/colors.scss';
+@import '../../styles/sizing.scss';
+
+.wrapper {
+    margin-top: 34px;
+    padding: 10px;
+    @media screen and (min-width: 993px) {
+        padding: 10px $gutterWidth;
+    }
+}
+
+h2 {
+    font-size: $headingBig;
+}
+
+.movies {
+    width: calc(100% - (#{$gutterWidth} * 2));
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    @media screen and (min-width: 993px) {
+        min-height: 1200px;
+    }
+}
+
+.pagination {
+    position: relative;
+    z-index: 10;
+    margin: 0 auto;
+    width: 250px;
+    @media screen and (min-width: 700px) {
+        padding: 0 50px;
+        width: 650px;
+    }
+    .paginationButton {
+        position: absolute;
+        border: 2px solid $blueMedium2;
+        background-color: transparent;
+        width: 40px;
+        height: 40px;
+        color: $blueMedium1;
+        outline: none;
+        cursor: pointer;
+        border-radius: 14px;
+        &.selected {
+            background-color: $blueMedium2;
+            color: $blueDark;
+        }
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        &.prev {
+            left: -50px;
+            @media screen and (min-width: 700px) {
+                top: 0;
+                left: 0;
+            }
+        }
+        &.next {
+            @media screen and (min-width: 700px) {
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+    .pagination-slider {
+        position: relative;
+        overflow: hidden;
+        margin: 30px auto;
+        height: 80px;
+        @media screen and (min-width: 700px) {
+            height: 40px;
+            max-width: 550x;
+        }
+        .pagination-slider-wrapper {
+            display: flex;
+            position: absolute;
+            .pageButton {
+                position: relative;
+                background-color: transparent;
+                margin: 0 5px;
+                border: 2px solid $blueMedium2;
+                width: 40px;
+                height: 40px;
+                color: $blueMedium1;
+                outline: none;
+                cursor: pointer;
+                border-radius: 14px;
+                &.selected {
+                    background-color: $blueMedium2;
+                    color: $blueDark;
+                }
+            }
+        }
+    }
+}
