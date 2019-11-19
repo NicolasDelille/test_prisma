@@ -1,0 +1,30 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+
+.movie-card {
+    position: relative;
+    flex: 1 1;
+    min-width: 138px;
+    max-width: 138px;
+    text-align: left;
+    margin-right: 84px;
+    img  {
+        max-width: calc(100%);
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+    }
+    .details {
+        position: relative;
+        .title {
+            color: $white;
+            font-size: $fontMedium;
+            font-weight: bold;
+        }
+
+        .date {
+            color: $blueMedium1;
+            font-size: $fontSmall;
+        }
+    }
+}

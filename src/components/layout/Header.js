@@ -1,0 +1,18 @@
+import React from 'react';
+import Navbar from './Navbar';
+import './Header.scss';
+import TopRatedMovies from '../movies/TopRatedMovies';
+
+const Header = () => {
+    return (
+        <header>
+            <div className='header-inside'>
+                <Navbar />
+                <TopRatedMovies />
+            </div>
+            <div className='overlay'></div>
+        </header>
+    );
+};
+
+export default Header;

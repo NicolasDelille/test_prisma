@@ -1,0 +1,25 @@
+@import '../../styles/fonts.scss';
+@import '../../styles/sizing.scss';
+
+.wrapper {
+    margin-top: 34px;
+    padding: 10px $gutterWidth;
+}
+
+h2 {
+    font-size: $headingBig;
+}
+
+.movie-slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 804px;
+    height: 275px;
+    margin: 30px auto;
+}
+
+.movie-slider-wrapper {
+    display: flex;
+    position: absolute;
+    transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
