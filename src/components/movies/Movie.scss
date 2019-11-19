@@ -10,7 +10,10 @@
     min-width: 138px;
     max-width: 138px;
     text-align: left;
-    margin: 0 42px;
+    margin: 0 10px;
+    @media screen and (min-width: 504px) {
+        margin: 0 42px;
+    }
     .poster {
         max-width: calc(100%);
         margin: 0 auto;
@@ -18,8 +21,8 @@
         border-radius: 10px;
     }
     .details {
-        // display: flex;
-        // flex-direction: column;
+        display: flex;
+        flex-direction: column;
         position: relative;
         .title {
             display: block;
