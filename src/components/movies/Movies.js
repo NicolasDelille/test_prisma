@@ -11,8 +11,17 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
-    const [paginationIndex, setPaginationIndex] = useState(0);
     const [totalPages, setTotalPages] = useState(1);
+    const [paginationIndex, setPaginationIndex] = useState(1);
+    const [currentPagination, setCurrentPagination] = useState([]);
+
+    const getCurrentPagination = (paginationIndex, totalPages) => {
+        let paginationButtons = [];
+        for (let index = 1; index <= totalPages; index++) {
+            paginationButtons.push(index);
+        }
+        setCurrentPagination(paginationButtons.slice(paginationIndex - 1, paginationIndex + 9));
+    };
 
     const fetchMovies = async currentPage => {
         setPage(currentPage);
@@ -26,6 +35,7 @@ const Movies = () => {
 
             setTotalPages(totalPages);
             setMovies(fetchedMovies);
+            getCurrentPagination(paginationIndex, totalPages);
             setPaginationIndex(paginationIndex);
             setLoading(false);
         } catch (error) {
@@ -37,19 +47,16 @@ const Movies = () => {
         fetchMovies(1);
     }, []);
 
-    let paginationButtons = [];
-    for (let index = 1; index <= totalPages; index++) {
-        paginationButtons.push(index);
-    }
-
     const prevPagination = () => {
         const newIndex = paginationIndex - 10;
         setPaginationIndex(newIndex);
+        getCurrentPagination(newIndex, totalPages);
     };
 
     const nextPagination = () => {
         const newIndex = paginationIndex + 10;
         setPaginationIndex(newIndex);
+        getCurrentPagination(newIndex, totalPages);
     };
 
     return (
@@ -66,32 +73,31 @@ const Movies = () => {
                     </div>
 
                     <div className='pagination'>
-                        <button onClick={() => prevPagination()} className='paginationButton prev'>
+                        <button
+                            onClick={() => prevPagination()}
+                            className='paginationButton prev'
+                            disabled={paginationIndex === 1}
+                        >
                             <img src={paginationpreviousarrow} alt='Pages précédentes' />
                         </button>
-                        <div className='pagination-slider'>
-                            <div
-                                className='pagination-slider-wrapper'
-                                style={{
-                                    transform: `translateX(-${paginationIndex * (100 / totalPages)}%)`
+                        {currentPagination.map(index => (
+                            <button
+                                className={classnames('pageButton', {
+                                    selected: page === index
+                                })}
+                                key={index}
+                                onClick={() => {
+                                    fetchMovies(index);
                                 }}
                             >
-                                {paginationButtons.map(index => (
-                                    <button
-                                        className={classnames('pageButton', {
-                                            selected: page === index
-                                        })}
-                                        key={index}
-                                        onClick={() => {
-                                            fetchMovies(index);
-                                        }}
-                                    >
-                                        {index}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                        <button onClick={() => nextPagination()} className='paginationButton next'>
+                                {index}
+                            </button>
+                        ))}
+                        <button
+                            onClick={() => nextPagination()}
+                            className='paginationButton next'
+                            disabled={paginationIndex + 10 > totalPages}
+                        >
                             <img src={paginationnextarrow} alt='Pages suivantes' />
                         </button>
                     </div>
