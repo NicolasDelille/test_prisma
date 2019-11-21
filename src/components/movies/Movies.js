@@ -60,8 +60,7 @@ const Movies = () => {
     };
 
     return (
-        <div className='wrapper'>
-            <h2>Tous les films</h2>
+        <div className='section'>
             {loading ? (
                 <span style={{ height: '275px' }}>loading...</span>
             ) : (

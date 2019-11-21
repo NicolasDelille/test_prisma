@@ -1,0 +1,32 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+
+.filterwrapper {
+    margin-top: 40px;
+    width: 620px;
+    display: flex;
+    .ordering,
+    .filtering {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+            color: $blueMedium1;
+            font-size: $fontSmall;
+            margin-right: 10px;
+            min-width: 65px;
+        }
+        .filter-button {
+            padding: 10px 20px 15px;
+            color: $blueMedium1;
+            border: 1px solid $blueMedium1;
+            margin-right: 10px;
+            font-size: $fontSmall;
+            border-radius: 14px;
+            cursor: pointer;
+        }
+    }
+    .filtering {
+        margin-left: 40px;
+    }
+}

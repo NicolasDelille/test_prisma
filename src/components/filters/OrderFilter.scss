@@ -1,0 +1,12 @@
+@import '../../styles/colors.scss';
+@import '../../styles/fonts.scss';
+
+.order-filter-button {
+    min-width: 190px;
+    position: relative;
+    img {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+}

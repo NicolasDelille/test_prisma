@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/logo.svg';
-import SearchInput from '../movies/SearchInput';
+import SearchInput from '../filters/SearchInput';
 import './Navbar.scss';
 
 const Navbar = () => {

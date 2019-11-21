@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from './Navbar';
-import './Header.scss';
 import TopRatedMovies from '../movies/TopRatedMovies';
 
 const Header = () => {

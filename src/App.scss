@@ -1,3 +1,12 @@
+@import './styles/colors.scss';
+
 body {
     overflow-x: hidden;
+    background-color: $blueDark;
+    .App {
+        background-image: linear-gradient(to bottom, transparent 100%, $blueDark 50%), url('./assets/backgroundimg.jpg');
+        mix-blend-mode: luminosity;
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+    }
 }
