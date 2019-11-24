@@ -18,7 +18,7 @@ const YearFilter = () => {
 
     return (
         <div className='filter-button year-filter-button'>
-            <button onClick={onClickHandler}>Année</button>
+            <span onClick={onClickHandler}>Année</span>
             {open && (
                 <Calendar
                     onChange={onChange}

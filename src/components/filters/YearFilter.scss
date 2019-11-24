@@ -6,7 +6,8 @@
     text-align: center;
     padding: 0 !important;
     position: relative;
-    button {
+    span {
+        display: block;
         padding: 10px 20px 15px;
         border-radius: 10px;
         width: 100%;
@@ -44,6 +45,7 @@
         background: $blueMedium2;
         color: $white;
         outline: none;
+        border-radius: 10px;
     }
     .react-calendar__navigation {
         width: 215px;
