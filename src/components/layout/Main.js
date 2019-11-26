@@ -6,7 +6,6 @@ import './Main.scss';
 const Main = () => {
     return (
         <div className='main'>
-            <Filters />
             <Movies />
         </div>
     );

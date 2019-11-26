@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Consumer } from '../../provider/movie-provider';
 import './SearchInput.scss';
 
 const SearchInput = () => {
@@ -10,27 +11,36 @@ const SearchInput = () => {
         setformData({ [e.target.name]: e.target.value });
     };
 
-    const onSubmit = e => {
-        e.preventDefault();
-        console.log(formData);
-    };
-
     const { searchValue } = formData;
 
     return (
-        <div>
-            <form onSubmit={e => onSubmit(e)}>
-                <input
-                    onChange={e => onChange(e)}
-                    type='text'
-                    name='searchValue'
-                    id='searchValue'
-                    placeholder='Rechercher un film'
-                    value={searchValue}
-                />
-                <button type='submit'></button>
-            </form>
-        </div>
+        <Consumer>
+            {value => {
+                const [movies, setMovies, filterType, fetchMovies, param, setParam] = value;
+                return (
+                    <div>
+                        <form
+                            onSubmit={e => {
+                                e.preventDefault();
+                                console.log(formData);
+                                fetchMovies(1, 'query', searchValue);
+                                setParam(searchValue);
+                            }}
+                        >
+                            <input
+                                onChange={e => onChange(e)}
+                                type='text'
+                                name='searchValue'
+                                id='searchValue'
+                                placeholder='Rechercher un film'
+                                value={searchValue}
+                            />
+                            <button type='submit'></button>
+                        </form>
+                    </div>
+                );
+            }}
+        </Consumer>
     );
 };
 
