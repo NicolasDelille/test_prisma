@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/layout/Header';
-import Main from './components/layout/Main';
+import Movies from './components/movies/Movies';
 import { Provider } from './provider/movie-provider';
 import './App.scss';
 
@@ -9,7 +9,7 @@ function App() {
         <Provider>
             <div className='App'>
                 <Header />
-                <Main />
+                <Movies />
             </div>
         </Provider>
     );
