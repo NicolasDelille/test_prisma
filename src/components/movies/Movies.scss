@@ -1,26 +1,15 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/colors.scss';
-@import '../../styles/sizing.scss';
-
-.section {
-    margin-top: 34px;
-    padding: 10px;
-    @media screen and (min-width: 993px) {
-        padding: 10px $gutterWidth;
-    }
-}
 
 h2 {
     font-size: $headingBig;
 }
 
 .movies {
-    width: calc(100% - (#{$gutterWidth} * 2));
-    margin: 30px auto 0;
+    width: 100%;
+    margin: 30px 0 0;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    @media screen and (min-width: 993px) {
-        min-height: 1200px;
-    }
+    justify-content: space-between;
+    width: 100%;
 }

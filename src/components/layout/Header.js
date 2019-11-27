@@ -9,7 +9,6 @@ const Header = () => {
                 <Navbar />
                 <TopRatedMovies />
             </div>
-            <div className='overlay'></div>
         </header>
     );
 };

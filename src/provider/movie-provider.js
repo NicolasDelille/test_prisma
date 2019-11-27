@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Context = React.createContext();
+export const Context = React.createContext();
 
 export const Provider = props => {
     const [movies, setMovies] = useState([]);
     const [param, setParam] = useState('');
     const [filterType, setFilterType] = useState('');
     const [genreList, setGenreList] = useState([]);
-    const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const [paginationIndex, setPaginationIndex] = useState(1);
-    const [currentPagination, setCurrentPagination] = useState([]);
+    const [orderAlpha, setOrderAlpha] = useState(false);
 
-    const getCurrentPagination = (paginationIndex, totalPages) => {
-        let paginationButtons = [];
-        for (let index = 1; index <= totalPages; index++) {
-            paginationButtons.push(index);
-        }
-        setCurrentPagination(paginationButtons.slice(paginationIndex - 1, paginationIndex + 9));
-    };
-
-    const fetchMovies = async (currentPage, type, param) => {
+    const fetchMovies = async (currentPage, filterType, param) => {
         let requestURI;
-        switch (type) {
+        switch (filterType) {
             case 'genre':
                 setFilterType('genre');
                 requestURI = `${process.env.REACT_APP_API_ENTRYPOINT}/discover/movie?page=${currentPage}&language=fr-FR&with_genres=${param}&include_adult=false`;
@@ -36,14 +26,15 @@ export const Provider = props => {
                 setFilterType('year');
                 requestURI = `${process.env.REACT_APP_API_ENTRYPOINT}/discover/movie?page=${currentPage}&language=fr-FR&year=${param}&include_adult=false`;
                 break;
+            case 'alpha':
+                setFilterType('alpha');
+                requestURI = `${process.env.REACT_APP_API_ENTRYPOINT}/discover/movie?page=${currentPage}&language=fr-FR&include_adult=false&sort_by=${param}`;
+                break;
             default:
                 setFilterType('');
-                setPage(currentPage);
                 requestURI = `${process.env.REACT_APP_API_ENTRYPOINT}/discover/movie?page=${currentPage}&language=fr-FR&include_adult=false`;
                 break;
         }
-        console.log(requestURI);
-
         try {
             const res = await axios.get(requestURI, {
                 headers: { Authorization: `Bearer ${process.env.REACT_APP_API_SECRET_TOKEN}` }
@@ -54,8 +45,6 @@ export const Provider = props => {
 
             setTotalPages(totalPages);
             setMovies(fetchedMovies);
-            getCurrentPagination(paginationIndex, totalPages);
-            setPaginationIndex(paginationIndex);
         } catch (error) {
             console.error(error.message);
         }
@@ -87,15 +76,9 @@ export const Provider = props => {
                 param,
                 setParam,
                 genreList,
-                page,
-                setPage,
                 totalPages,
-                setTotalPages,
-                paginationIndex,
-                setPaginationIndex,
-                currentPagination,
-                setCurrentPagination,
-                getCurrentPagination
+                orderAlpha,
+                setOrderAlpha
             ]}
         >
             {props.children}

@@ -1,49 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import dropdownarrow from '../../assets/dropdownarrow.svg';
+import { Context } from '../../provider/movie-provider';
 import './OrderAlpha.scss';
-import { Consumer } from '../../provider/movie-provider';
 
 const OrderAlpha = () => {
-    const [orderAlpha, setOrderAlpha] = useState(false);
-    const [old, setOld] = useState();
+    const value = useContext(Context);
+    const [, , , fetchMovies, , setParam, , , orderAlpha, setOrderAlpha] = value;
 
-    const onClickHandler = (movies, setMovies) => {
-        setOld(movies.slice());
-
-        setOrderAlpha(!orderAlpha);
+    const onClickHandler = () => {
         if (!orderAlpha) {
-            setMovies(
-                [...movies].sort(function(a, b) {
-                    if (a.title < b.title) {
-                        return -1;
-                    }
-                    if (a.title > b.title) {
-                        return 1;
-                    }
-                    return 0;
-                })
-            );
+            fetchMovies(1, 'alpha', 'original_title.desc');
+            setParam('original_title.desc');
         } else {
-            setMovies(old);
+            fetchMovies(1, '', '');
+            setParam('');
         }
+        setOrderAlpha(!orderAlpha);
     };
 
     return (
-        <Consumer>
-            {([movies, setMovies]) => {
-                return (
-                    <div
-                        onClick={() => {
-                            onClickHandler(movies, setMovies);
-                        }}
-                        className='filter-button order-alpha-button'
-                    >
-                        Ordre alphabétique
-                        {orderAlpha && <img src={dropdownarrow} alt='order alpha' />}
-                    </div>
-                );
-            }}
-        </Consumer>
+        <div onClick={() => onClickHandler()} className='filter-button order-alpha-button'>
+            Ordre alphabétique
+            {orderAlpha && <img src={dropdownarrow} alt='order alpha' />}
+        </div>
     );
 };
 

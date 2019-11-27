@@ -1,11 +1,10 @@
 @import '../../styles/fonts.scss';
-@import '../../styles/sizing.scss';
 
 .header-wrapper {
     margin-top: 34px;
-    padding: 10px;
+    padding: 10px 0;
     @media screen and (min-width: 993px) {
-        padding: 10px $gutterWidth;
+        padding: 10px 0;
     }
 }
 

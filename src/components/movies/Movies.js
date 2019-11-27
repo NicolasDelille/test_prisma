@@ -16,17 +16,15 @@ const Movies = () => {
                     return 'loading...';
                 } else {
                     return (
-                        <div className='section'>
+                        <Fragment>
                             <Filters />
-                            <Fragment>
-                                <div className='movies'>
-                                    {movies.map(movie => (
-                                        <Movie key={movie.id} movie={movie} />
-                                    ))}
-                                </div>
-                                <Pagination />
-                            </Fragment>
-                        </div>
+                            <div className='movies'>
+                                {movies.map(movie => (
+                                    <Movie key={movie.id} movie={movie} />
+                                ))}
+                            </div>
+                            <Pagination />
+                        </Fragment>
                     );
                 }
             }}

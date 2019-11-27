@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import YearFilter from './YearFilter';
 import OrderAlpha from './OrderAlpha';
 import GenreFilter from './GenreFilter';
@@ -9,10 +9,8 @@ const Filter = () => {
     return (
         <Consumer>
             {value => {
-                const [movies, setMovies, filterType, fetchMovies, param, setParam, genreList] = value;
+                const [, , filterType, , param, , genreList] = value;
                 let heading;
-
-                console.log(param);
 
                 switch (filterType) {
                     case 'genre':
@@ -30,7 +28,7 @@ const Filter = () => {
                         break;
                 }
                 return (
-                    <div className='section'>
+                    <Fragment>
                         <h2>{heading}</h2>
                         <div className='filterwrapper'>
                             <div className='ordering'>
@@ -43,7 +41,7 @@ const Filter = () => {
                                 <YearFilter />
                             </div>
                         </div>
-                    </div>
+                    </Fragment>
                 );
             }}
         </Consumer>

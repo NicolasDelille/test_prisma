@@ -8,5 +8,12 @@ body {
         mix-blend-mode: luminosity;
         background-repeat: no-repeat;
         background-size: 100vw 100vh;
+        padding: 0 30px;
+        @media screen and (min-width: 600px) {
+            padding: 0 50px;
+        }
+        @media screen and (min-width: 993px) {
+            padding: 0 90px;
+        }
     }
 }

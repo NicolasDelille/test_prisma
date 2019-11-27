@@ -15,7 +15,7 @@ const YearFilter = () => {
     return (
         <Consumer>
             {value => {
-                const [movies, setMovies, filterType, fetchMovies, param, setParam] = value;
+                const [, , , fetchMovies, , setParam, ,] = value;
                 return (
                     <div className='filter-button year-filter-button'>
                         <span onClick={onClickHandler}>{heading}</span>

@@ -1,8 +1,10 @@
 @import '../../styles/colors.scss';
 
 .main {
-    // background-color: $blueDark;
     .section {
-        margin: 0;
+        padding: 10px 0;
+        @media screen and (min-width: 993px) {
+            padding: 10px 20px;
+        }
     }
 }

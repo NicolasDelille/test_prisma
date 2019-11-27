@@ -20,7 +20,7 @@ const GenreFilter = () => {
     return (
         <Consumer>
             {value => {
-                const [movies, setMovies, filterType, fetchMovies, param, setParam, genreList] = value;
+                const [, , , fetchMovies, , setParam, genreList] = value;
 
                 return (
                     <div
