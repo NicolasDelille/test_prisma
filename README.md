@@ -2,6 +2,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Technical test for Prisma
 
+## Installation
+
+Install all dependencies using `npm` or `yarn`
+
+```bash
+# NPM
+$ npm install
+
+# Yarn
+$ yarn add
+```
+
+Paste your own `API Read Access Token (v4 auth)` into the `.env` file.
+
 ## Available Scripts
 
 In the project directory, you can run:
