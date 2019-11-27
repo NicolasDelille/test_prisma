@@ -2,11 +2,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Technical test for Prisma
 
-## Features
-
-- Custom slideshow for displaying Top ten movies
-
-
 ## Available Scripts
 
 In the project directory, you can run:
