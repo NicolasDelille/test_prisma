@@ -2,46 +2,51 @@
 @import '../../styles/fonts.scss';
 
 .movie-card {
-    position: relative;
-    min-width: 168px;
-    max-width: 168px;
-    margin: 30px 20px;
-    flex: none;
-    .poster {
-        width: 100%;
-        margin: 0 auto;
-        display: block;
-        border-radius: 10px;
-    }
-    .no-poster {
-        width: 138px;
-        height: 207px;
-        margin: 0 auto;
-        display: flex;
-        border-radius: 10px;
-        background-color: #010101;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        span {
-            color: #fff;
-        }
-    }
-    .details {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        .title {
-            display: block;
-            margin-top: 5px;
-            color: $white;
-            font-size: $fontMedium;
-            font-weight: bold;
-        }
+	position: relative;
+	min-width: 120px;
+	max-width: 120px;
+	margin: 30px 15px;
+	@media screen and (min-width: 600px) {
+		min-width: 168px;
+		max-width: 168px;
+		margin: 30px 20px;
+	}
+	flex: none;
+	.poster {
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+		border-radius: 10px;
+	}
+	.no-poster {
+		width: 138px;
+		height: 207px;
+		margin: 0 auto;
+		display: flex;
+		border-radius: 10px;
+		background-color: #010101;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		span {
+			color: #fff;
+		}
+	}
+	.details {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		.title {
+			display: block;
+			margin-top: 5px;
+			color: $white;
+			font-size: $fontMedium;
+			font-weight: bold;
+		}
 
-        .date {
-            color: $blueMedium1;
-            font-size: $fontSmall;
-        }
-    }
+		.date {
+			color: $blueMedium1;
+			font-size: $fontSmall;
+		}
+	}
 }

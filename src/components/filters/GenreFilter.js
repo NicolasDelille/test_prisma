@@ -1,59 +1,50 @@
-import React, { useState } from 'react';
-import { Consumer } from '../../provider/movie-provider';
+import React, { useState, useContext } from 'react';
+import { Context } from '../../provider/movie-provider';
 import classnames from 'classnames';
 import dropdownarrow from '../../assets/dropdownarrow.svg';
 import './GenreFilter.scss';
 
 const GenreFilter = () => {
-    const [open, setOpen] = useState(false);
-    const [genre, setGenre] = useState('Genre');
+	const [ open, setOpen ] = useState(false);
 
-    const onClickHandler = () => {
-        setOpen(!open);
-    };
+	const value = useContext(Context);
+	const [ , , , fetchMovies, , setParam, genreList, , , , genre, setGenre ] = value;
 
-    const handleClick = e => {
-        e.preventDefault();
-        setGenre(e.target.value);
-    };
+	const onClickHandler = () => {
+		setOpen(!open);
+	};
 
-    return (
-        <Consumer>
-            {value => {
-                const [, , , fetchMovies, , setParam, genreList] = value;
+	const handleClick = e => {
+		e.preventDefault();
+		setGenre(e.target.value);
+	};
 
-                return (
-                    <div
-                        onClick={onClickHandler}
-                        className={classnames('filter-button', 'genre-filter-button', { expand: open })}
-                    >
-                        <span>{genre}</span>
-                        {!open && <img src={dropdownarrow} alt='open' />}
-                        {open && (
-                            <div className='dropdown-menu'>
-                                <ul>
-                                    {genreList.map(item => (
-                                        <li key={item.id}>
-                                            <button
-                                                onClick={e => {
-                                                    handleClick(e);
-                                                    fetchMovies(1, 'genre', item.id);
-                                                    setParam(item.id);
-                                                }}
-                                                value={item.name}
-                                            >
-                                                {item.name}
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
-                    </div>
-                );
-            }}
-        </Consumer>
-    );
+	return (
+		<div onClick={onClickHandler} className={classnames('filter-button', 'genre-filter-button', { expand: open })}>
+			<span>{genre === '' ? 'Genre' : genre}</span>
+			{!open && <img src={dropdownarrow} alt='open' />}
+			{open && (
+				<div className='dropdown-menu'>
+					<ul>
+						{genreList.map(item => (
+							<li key={item.id}>
+								<button
+									onClick={e => {
+										handleClick(e);
+										fetchMovies(1, 'genre', item.id);
+										setParam(item.id);
+									}}
+									value={item.name}
+								>
+									{item.name}
+								</button>
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
+		</div>
+	);
 };
 
 export default GenreFilter;

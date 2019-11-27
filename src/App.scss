@@ -1,28 +1,27 @@
 @import './styles/colors.scss';
 
 body {
-    overflow-x: hidden;
-    background-color: $blueDark;
-    .App {
-        background-image: linear-gradient(to bottom, transparent 100%, $blueDark 50%), url('./assets/backgroundimg.png');
-        mix-blend-mode: luminosity;
-        background-repeat: no-repeat;
-        background-size: 100vw 100vh;
-        padding: 0 30px;
-        @media screen and (min-width: 993px) {
-            padding: 0 90px;
-        }
-        .wrapper {
-            max-width: 1240px;
-            margin: 0 auto;
-            .content {
-              h2 {
-                  padding: 0 10px;
-                  @media screen and (min-width: 993px) {
-                    padding: 0 20px;
-                }
-              }  
-            }
-        }
-    }
+	overflow-x: hidden;
+	background-color: $blueDark;
+	.App {
+		background-image: linear-gradient(to bottom, transparent 100%, $blueDark 50%), url('./assets/backgroundimg.png');
+		background-repeat: no-repeat;
+		background-size: 100vw 100vh;
+		padding: 0 10px;
+		@media screen and (min-width: 993px) {
+			padding: 0 90px;
+		}
+		.wrapper {
+			max-width: 1240px;
+			margin: 0 auto;
+			.content {
+				h2 {
+					padding: 0 10px;
+					@media screen and (min-width: 993px) {
+						padding: 0 20px;
+					}
+				}
+			}
+		}
+	}
 }

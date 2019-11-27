@@ -1,47 +1,71 @@
 @import '../../styles/colors.scss';
 @import '../../styles/fonts.scss';
 
+.heading-wrapper {
+	display: flex;
+	button {
+		position: relative;
+		min-width: 120px;
+		padding: 5px 10px;
+		border-radius: 10px;
+		text-align: left;
+		border: none;
+		outline: none;
+		background-color: $blueMedium1;
+		color: $blueDark;
+		cursor: pointer;
+		&:after {
+			content: 'x';
+			position: absolute;
+			font-size: 20px;
+			line-height: 20px;
+			right: 10px;
+			top: 5px;
+		}
+	}
+}
+
 .filterwrapper {
-    margin: 40px 0 30px;
-    padding: 0 10px;
-    @media screen and (min-width: 993px) {
-        padding: 0 20px;
-    }
-    display: flex;
-    flex-direction: column;
-    @media screen and (min-width: 993px) {
-        flex-direction: row;
-    }
-    .ordering,
-    .filtering {
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 20px;
-        @media screen and (min-width: 993px) {
-            justify-content: space-between;
-            margin-bottom: 0;
-        }
-        align-items: center;
-        span {
-            color: $blueMedium1;
-            font-size: $fontSmall;
-            margin-right: 10px;
-            min-width: 65px;
-        }
-        .filter-button {
-            padding: 10px 20px 15px;
-            color: $blueMedium1;
-            border: 1px solid $blueMedium1;
-            margin-right: 10px;
-            font-size: $fontSmall;
-            border-radius: 14px;
-            cursor: pointer;
-        }
-    }
-    .filtering {
-        @media screen and (min-width: 993px) {
-            margin-left: 40px;
-        }
-    
-    }
+	margin: 40px 0 30px;
+	padding-left: 10px;
+	@media screen and (min-width: 993px) {
+		padding-left: 20px;
+	}
+	display: flex;
+	flex-direction: column;
+	@media screen and (min-width: 993px) {
+		flex-direction: row;
+	}
+	.ordering,
+	.filtering {
+		display: flex;
+		justify-content: flex-start;
+		margin-bottom: 20px;
+		@media screen and (min-width: 993px) {
+			justify-content: space-between;
+			margin-bottom: 0;
+		}
+		align-items: center;
+		span {
+			flex-grow: 100%;
+			color: $blueMedium1;
+			font-size: $fontSmall;
+			margin-right: 10px;
+			min-width: 55px;
+		}
+		.filter-button {
+			padding: 10px 20px 15px;
+			color: $blueMedium1;
+			border: 1px solid $blueMedium1;
+			margin-right: 10px;
+			font-size: $fontSmall;
+			border-radius: 14px;
+			cursor: pointer;
+		}
+	}
+	.filtering {
+		@media screen and (min-width: 993px) {
+			margin-left: 40px;
+		}
+	}
 }
