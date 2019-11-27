@@ -11,7 +11,7 @@ Install all dependencies using `npm` or `yarn`
 $ npm install
 
 # Yarn
-$ yarn add
+$ yarn install
 ```
 
 Paste your own `API Read Access Token (v4 auth)` into the `.env` file.
