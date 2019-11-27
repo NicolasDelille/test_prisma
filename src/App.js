@@ -8,8 +8,12 @@ function App() {
     return (
         <Provider>
             <div className='App'>
-                <Header />
-                <Movies />
+                <div className="wrapper">
+                    <Header />
+                    <div className="content">
+                        <Movies />
+                    </div>
+                </div>
             </div>
         </Provider>
     );

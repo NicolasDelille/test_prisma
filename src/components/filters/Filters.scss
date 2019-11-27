@@ -3,11 +3,24 @@
 
 .filterwrapper {
     margin: 40px 0 30px;
+    padding: 0 10px;
+    @media screen and (min-width: 993px) {
+        padding: 0 20px;
+    }
     display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 993px) {
+        flex-direction: row;
+    }
     .ordering,
     .filtering {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+        @media screen and (min-width: 993px) {
+            justify-content: space-between;
+            margin-bottom: 0;
+        }
         align-items: center;
         span {
             color: $blueMedium1;
@@ -26,6 +39,9 @@
         }
     }
     .filtering {
-        margin-left: 40px;
+        @media screen and (min-width: 993px) {
+            margin-left: 40px;
+        }
+    
     }
 }

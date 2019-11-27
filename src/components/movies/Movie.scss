@@ -3,8 +3,9 @@
 
 .movie-card {
     position: relative;
-    min-width: 138px;
-    max-width: 138px;
+    min-width: 168px;
+    max-width: 168px;
+    margin: 30px 20px;
     flex: none;
     .poster {
         width: 100%;

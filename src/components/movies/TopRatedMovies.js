@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import classnames from 'classnames';
 import './TopRatedMovies.scss';
@@ -68,7 +68,7 @@ const TopRatedMovies = () => {
     };
 
     return (
-        <div className='header-wrapper'>
+        <Fragment>
             <h2>Les 10 meilleurs films</h2>
             {loading ? (
                 <span style={{ height: '275px' }}>loading...</span>
@@ -106,7 +106,7 @@ const TopRatedMovies = () => {
                     </button>
                 </div>
             )}
-        </div>
+        </Fragment>
     );
 };
 

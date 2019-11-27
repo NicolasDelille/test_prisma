@@ -35,6 +35,9 @@ export const Provider = props => {
                 requestURI = `${process.env.REACT_APP_API_ENTRYPOINT}/discover/movie?page=${currentPage}&language=fr-FR&include_adult=false`;
                 break;
         }
+
+        console.log('requestURI', requestURI);
+
         try {
             const res = await axios.get(requestURI, {
                 headers: { Authorization: `Bearer ${process.env.REACT_APP_API_SECRET_TOKEN}` }
