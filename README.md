@@ -14,7 +14,7 @@ $ npm install
 $ yarn install
 ```
 
-Paste your own `API Read Access Token (v4 auth)` into the `.env` file.
+Copy the `.env.example` to `.env` replacing `API_BEARER_TOKEN` by the one you created here: <https://www.themoviedb.org/settings/api/request> (`API Read Access Token (v4 auth)`).
 
 ## Available Scripts
 
