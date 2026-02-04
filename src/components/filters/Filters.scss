@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
 
 .heading-wrapper {
 	display: flex;
@@ -11,8 +11,8 @@
 		text-align: left;
 		border: none;
 		outline: none;
-		background-color: $blueMedium1;
-		color: $blueDark;
+		background-color: colors.$blueMedium1;
+		color: colors.$blueDark;
 		cursor: pointer;
 		&:after {
 			content: 'x';
@@ -48,17 +48,17 @@
 		align-items: center;
 		span {
 			flex-grow: 100%;
-			color: $blueMedium1;
-			font-size: $fontSmall;
+			color: colors.$blueMedium1;
+			font-size: fonts.$fontSmall;
 			margin-right: 10px;
 			min-width: 55px;
 		}
 		.filter-button {
 			padding: 10px 20px 15px;
-			color: $blueMedium1;
-			border: 1px solid $blueMedium1;
+			color: colors.$blueMedium1;
+			border: 1px solid colors.$blueMedium1;
 			margin-right: 10px;
-			font-size: $fontSmall;
+			font-size: fonts.$fontSmall;
 			border-radius: 14px;
 			cursor: pointer;
 		}

@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
 
 form {
 	position: relative;
@@ -16,15 +16,15 @@ input {
 	padding: 10px;
 	border-radius: 14px;
 	border: unset;
-	background-color: $blueMedium2;
+	background-color: colors.$blueMedium2;
 	outline: unset;
-	color: $blueMedium1;
+	color: colors.$blueMedium1;
 	@media screen and (min-width: 600px) {
 		width: 315px;
 	}
 	&::placeholder {
-		color: $blueMedium1;
-		font-size: $fontSmall;
+		color: colors.$blueMedium1;
+		font-size: fonts.$fontSmall;
 	}
 }
 

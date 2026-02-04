@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
 
 .movie-card {
 	position: relative;
@@ -39,14 +39,14 @@
 		.title {
 			display: block;
 			margin-top: 5px;
-			color: $white;
-			font-size: $fontMedium;
+			color: colors.$white;
+			font-size: fonts.$fontMedium;
 			font-weight: bold;
 		}
 
 		.date {
-			color: $blueMedium1;
-			font-size: $fontSmall;
+			color: colors.$blueMedium1;
+			font-size: fonts.$fontSmall;
 		}
 	}
 }

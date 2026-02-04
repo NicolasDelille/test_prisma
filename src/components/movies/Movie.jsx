@@ -1,6 +1,7 @@
 import React from 'react';
-import Moment from 'react-moment';
+import { format } from 'date-fns';
 import './Movie.scss';
+import { API_IMAGE_ENTRYPOINT } from '../../config';
 
 const Movie = ({ movie }) => {
     return (
@@ -8,7 +9,7 @@ const Movie = ({ movie }) => {
             {movie.poster_path ? (
                 <img
                     className='poster'
-                    src={`${process.env.REACT_APP_API_IMAGE_ENTRYPOINT}/w200${movie.poster_path}`}
+                    src={`${API_IMAGE_ENTRYPOINT}/w200${movie.poster_path}`}
                     alt=''
                 />
             ) : (
@@ -19,7 +20,7 @@ const Movie = ({ movie }) => {
             <div className='details'>
                 <span className='title'>{movie.title}</span>
                 <span className='date'>
-                    <Moment format='YYYY'>{movie.release_date}</Moment>
+                    {format(new Date(movie.release_date), 'yyyy')}
                 </span>
             </div>
         </div>

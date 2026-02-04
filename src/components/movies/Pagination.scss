@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
 
 .pagination {
     position: relative;
@@ -16,18 +16,18 @@
     }
     .paginationButton {
         position: relative;
-        border: 2px solid $blueMedium2;
+        border: 2px solid colors.$blueMedium2;
         background-color: transparent;
         width: 40px;
         height: 40px;
         margin: 10px 5px;
-        color: $blueMedium1;
+        color: colors.$blueMedium1;
         outline: none;
         cursor: pointer;
         border-radius: 14px;
         &.selected {
-            background-color: $blueMedium2;
-            color: $blueDark;
+            background-color: colors.$blueMedium2;
+            color: colors.$blueDark;
         }
         img {
             position: absolute;
@@ -40,16 +40,16 @@
         position: relative;
         background-color: transparent;
         margin: 10px 5px;
-        border: 2px solid $blueMedium2;
+        border: 2px solid colors.$blueMedium2;
         width: 40px;
         height: 40px;
-        color: $blueMedium1;
+        color: colors.$blueMedium1;
         outline: none;
         cursor: pointer;
         border-radius: 14px;
         &.selected {
-            background-color: $blueMedium2;
-            color: $blueDark;
+            background-color: colors.$blueMedium2;
+            color: colors.$blueDark;
         }
     }
 }
