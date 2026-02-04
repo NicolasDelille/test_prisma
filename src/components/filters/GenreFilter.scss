@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
 
 .genre-filter-button {
 	position: relative;
@@ -14,7 +14,7 @@
 	}
 	&.expand {
 		padding: 0 20px !important;
-		background-color: $blueMedium2;
+		background-color: colors.$blueMedium2;
 		border-radius: 10px 10px 0 0 !important;
 		border-bottom: none !important;
 		span {
@@ -33,16 +33,16 @@
 		left: -1px;
 		width: calc(100% + 2px);
 		z-index: 10;
-		border: 1px solid $blueMedium1;
+		border: 1px solid colors.$blueMedium1;
 		border-radius: 0 0 10px 10px;
-		background-color: $blueMedium2;
+		background-color: colors.$blueMedium2;
 		ul {
 			list-style: none;
 			li {
 				padding: 0 20px;
 				height: 36px;
 				line-height: 36px;
-				border-bottom: 1px solid $blueMedium1;
+				border-bottom: 1px solid colors.$blueMedium1;
 				&:last-child {
 					border-bottom: none;
 				}

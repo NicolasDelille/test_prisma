@@ -1,22 +1,27 @@
-@import './styles/colors.scss';
+@use 'styles/colors.scss';
 
 body {
 	overflow-x: hidden;
-	background-color: $blueDark;
+	background-color: colors.$blueDark;
+
 	.App {
-		background-image: linear-gradient(to bottom, transparent 100%, $blueDark 50%), url('./assets/backgroundimg.png');
+		background-image: linear-gradient(to bottom, transparent 100%, colors.$blueDark 50%), url('./assets/backgroundimg.png');
 		background-repeat: no-repeat;
 		background-size: 100vw 100vh;
 		padding: 0 10px;
+
 		@media screen and (min-width: 993px) {
 			padding: 0 90px;
 		}
+
 		.wrapper {
 			max-width: 1240px;
 			margin: 0 auto;
+
 			.content {
 				h2 {
 					padding: 0 10px;
+
 					@media screen and (min-width: 993px) {
 						padding: 0 20px;
 					}

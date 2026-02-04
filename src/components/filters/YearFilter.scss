@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
 
 .year-filter-button {
 	min-width: 105px;
@@ -31,7 +31,7 @@
 	width: 300px;
 	padding: 16px 30px;
 	border-radius: 10px;
-	background-color: $blueMedium2;
+	background-color: colors.$blueMedium2;
 	&:before {
 		content: '';
 		position: absolute;
@@ -41,12 +41,12 @@
 		height: 0;
 		border-left: 8px solid transparent;
 		border-right: 8px solid transparent;
-		border-bottom: 8px solid $blueMedium2;
+		border-bottom: 8px solid colors.$blueMedium2;
 	}
 	button {
 		border: none;
-		background: $blueMedium2;
-		color: $white;
+		background: colors.$blueMedium2;
+		color: colors.$white;
 		outline: none;
 		border-radius: 10px;
 	}
@@ -76,7 +76,7 @@
 		}
 		.react-calendar__navigation__label {
 			border: none;
-			font-size: $fontMedium;
+			font-size: fonts.$fontMedium;
 			font-weight: bold;
 			width: 80px;
 		}
@@ -86,10 +86,10 @@
 		button {
 			flex-basis: 25% !important;
 			max-width: 25% !important;
-			font-size: $fontMedium;
+			font-size: fonts.$fontMedium;
 			cursor: pointer;
 			&.react-calendar__tile--active {
-				background-color: $blueMedium1;
+				background-color: colors.$blueMedium1;
 			}
 		}
 	}

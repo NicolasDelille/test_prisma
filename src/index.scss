@@ -1,4 +1,4 @@
-@import './styles/fonts.scss';
+@use 'styles/fonts.scss';
 
 * {
     box-sizing: border-box;
@@ -9,7 +9,7 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: $fontFamily;
+    font-family: fonts.$fontFamily;
     color: #fff;
 }
 

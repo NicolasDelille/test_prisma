@@ -6,22 +6,25 @@ import Movie from './Movie';
 import prevSlide from '../../assets/sliderpreviousarrow.svg';
 import nextSlide from '../../assets/slidernextarrow.svg';
 
+import { API_ENTRYPOINT, API_SECRET_TOKEN } from '../../config';
+
 const TopRatedMovies = () => {
-	const [ movies, setMovies ] = useState([]);
-	const [ movie, setMovie ] = useState();
-	const [ loading, setLoading ] = useState(true);
+	const [movies, setMovies] = useState([]);
+	const [movie, setMovie] = useState();
+	const [loading, setLoading] = useState(true);
 
 	const fetchTopMovies = async () => {
 		try {
-			const res = await axios.get(`${process.env.REACT_APP_API_ENTRYPOINT}/movie/top_rated?language=en-US`, {
-				headers: { Authorization: `Bearer ${process.env.REACT_APP_API_SECRET_TOKEN}` }
+			const res = await axios.get(`${API_ENTRYPOINT}/movie/top_rated?language=en-US`, {
+				headers: { Authorization: `Bearer ${API_SECRET_TOKEN}` }
 			});
+			console.log('res.data', res.data);
 			const fetchedMovies = res.data.results;
-
+			console.log('fetchedMovies', fetchedMovies);
 			const fetchedMoviesWithIndex = fetchedMovies.map((movie, index) => ({ ...movie, index }));
-
+			console.log('fetchedMoviesWithIndex', fetchedMoviesWithIndex);
 			const topTenMovies = fetchedMoviesWithIndex.splice(0, 10);
-
+			console.log('topTenMovies', topTenMovies);
 			setMovies(topTenMovies);
 			setMovie(topTenMovies[0]);
 			setLoading(false);

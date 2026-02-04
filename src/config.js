@@ -1,0 +1,7 @@
+const env = import.meta.env;
+
+export const API_ENTRYPOINT = env.VITE_API_ENTRYPOINT;
+export const API_SECRET_TOKEN = env.VITE_API_SECRET_TOKEN;
+export const API_IMAGE_ENTRYPOINT = env.VITE_API_IMAGE_ENTRYPOINT;
+
+console.log(API_ENTRYPOINT, API_SECRET_TOKEN, API_IMAGE_ENTRYPOINT);

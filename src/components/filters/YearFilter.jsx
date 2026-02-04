@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
-import Calendar from 'react-calendar/dist/entry.nostyle';
+import Calendar from 'react-calendar';
 import { Context } from '../../provider/movie-provider';
 import './YearFilter.scss';
 
 const YearFilter = () => {
-	const [ open, setOpen ] = useState(false);
+	const [open, setOpen] = useState(false);
 
 	const value = useContext(Context);
-	const [ , , , fetchMovies, , setParam, , , , , , , date, setDate ] = value;
+	const [, , , fetchMovies, , setParam, , , , , , , date, setDate] = value;
 
 	const onClickHandler = () => {
 		setDate(new Date());
